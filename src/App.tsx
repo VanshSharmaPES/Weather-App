@@ -4,7 +4,7 @@ import SearchBar from './components/SearchBar';
 import { WeatherData } from './types/weather';
 import './App.css';
 
-const API_KEY = 'YOUR_API_KEY_HERE';
+const API_KEY = '33423a7d3c3a4d5db44182835253008';
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 function App() {
