@@ -1,4 +1,4 @@
-# 🌤️ Weather Forecast App
+# Weather Forecast App
 
 A beautiful, modern weather forecast application built with React, TypeScript, and Vite.
 
@@ -16,9 +16,9 @@ A beautiful, modern weather forecast application built with React, TypeScript, a
 
 ### Prerequisites
 
-- Node.js (v20.19+ or v22.12+)
+- Node.js (v20.9+)
 - npm or yarn
-- OpenWeatherMap API key (free)
+- WeatherAPI.com API key (free)
 
 ### Installation
 
@@ -34,13 +34,13 @@ npm install
 ```
 
 3. Get your free API key:
-   - Visit [OpenWeatherMap](https://openweathermap.org/api)
+   - Visit [WeatherAPI.com](https://www.weatherapi.com/)
    - Sign up for a free account
    - Generate an API key
 
 4. Add your API key:
-   - Open `src/App.tsx`
-   - Replace `YOUR_API_KEY_HERE` with your actual API key
+   - Create a `.env` file in the root directory
+   - Add: `VITE_WEATHER_API_KEY=your_api_key_here`
 
 5. Start the development server:
 ```bash
@@ -54,7 +54,7 @@ npm run dev
 - **React 18** - UI library
 - **TypeScript** - Type safety
 - **Vite** - Build tool and dev server
-- **OpenWeatherMap API** - Weather data
+- **WeatherAPI.com** - Weather data
 - **CSS3** - Styling with modern features (gradients, animations, grid)
 
 ## 📦 Project Structure
@@ -91,23 +91,13 @@ src/
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
 
-## 🌐 Deploying to GitHub Pages
+## 🌐 API Information
 
-1. Update `vite.config.ts` with your repo name:
-```typescript
-export default defineConfig({
-  base: '/your-repo-name/',
-  // ...
-})
-```
-
-2. Build and deploy:
-```bash
-npm run build
-git add dist -f
-git commit -m "Deploy to GitHub Pages"
-git subtree push --prefix dist origin gh-pages
-```
+This app uses [WeatherAPI.com](https://www.weatherapi.com/) which provides:
+- Current weather data
+- Free tier with 1 million calls/month
+- No credit card required
+- Real-time weather updates
 
 ## 📄 License
 
