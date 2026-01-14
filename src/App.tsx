@@ -4,7 +4,7 @@ import SearchBar from './components/SearchBar';
 import { WeatherData } from './types/weather';
 import './App.css';
 
-const API_KEY = '33423a7d3c3a4d5db44182835253008';
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY || '33423a7d3c3a4d5db44182835253008';
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 function App() {
@@ -27,8 +27,12 @@ function App() {
       const data = await response.json();
       
       console.log('API Response:', data);
+      console.log('Response Status:', response.status);
 
       if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error('Invalid API key. Please check your OpenWeatherMap API key or wait a few hours for it to activate.');
+        }
         throw new Error(data.message || 'City not found');
       }
 
