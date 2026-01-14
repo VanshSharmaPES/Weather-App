@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import WeatherCard from './components/WeatherCard';
-import SearchBar from './components/SearchBar';
-import { WeatherData } from './types/weather';
+import WeatherCard from './components/WeatherCard.tsx';
+import SearchBar from './components/SearchBar.tsx';
+import type { WeatherData } from './types/weather';
 import './App.css';
 
 const API_KEY = 'YOUR_API_KEY_HERE';
