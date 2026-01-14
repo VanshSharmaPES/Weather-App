@@ -19,17 +19,22 @@ function App() {
     setError('');
 
     try {
-      const response = await fetch(
-        `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
-      );
+      const url = `${API_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
+      console.log('Fetching weather for:', city);
+      console.log('API URL:', url);
+      
+      const response = await fetch(url);
+      const data = await response.json();
+      
+      console.log('API Response:', data);
 
       if (!response.ok) {
-        throw new Error('City not found');
+        throw new Error(data.message || 'City not found');
       }
 
-      const data = await response.json();
       setWeather(data);
     } catch (err) {
+      console.error('Error fetching weather:', err);
       setError(err instanceof Error ? err.message : 'Failed to fetch weather');
       setWeather(null);
     } finally {
